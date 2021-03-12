@@ -15,13 +15,8 @@ defmodule Nontinuum.HelperPerson do
 
   def list_person(conn) do
     cursor = Mongo.find(conn, @table, %{})
-
     cursor
     |> Enum.to_list()
     |> IO.inspect()
-  end
-
-  def print() do
-    IO.inspect(">>>>>>>>>>>>>>>>>>>>>")
   end
 end

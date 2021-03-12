@@ -24,11 +24,5 @@ defmodule MongoDB do
     {:reply, new_person}
   end
 
-  defp create_conn(),
-    do:
-      Mongo.start_link(
-        url: "mongodb://localhost:27017/admin",
-        username: "root",
-        password: "example"
-      )
+  def create_conn(),  do: Mongo.start_link(url: "mongodb://localhost:27017/admin")
 end

@@ -1,4 +1,45 @@
 conn = Mongo.start_link(url: "mongodb://localhost:27017/admin", username: "root",password: "example" )
 {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin", username: "root",password: "example")
 Mongo.insert_one(conn, "people", %{first_name: "John", last_name: "Smith"})
+{:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin")
 person = %Nontinuum.PersonImpl{name: "kevin", cc: 1025, last_name: "rodriguez"}
+Nontinuum.MongoHandler.create(person, conn)
+
+
+#################################### biblio  ##########################################
+# Create 
+%Nontinuum.BiblioImpl{name: "virgilio barco", ubication: "bogota"} |>Nontinuum.MongoHandler.create()
+%Nontinuum.BiblioImpl{name: "simon bolivar", ubication: "bogota"} |>Nontinuum.MongoHandler.create()
+
+# Delete 
+%Nontinuum.BiblioImpl{name: "simon bolivar", ubication: "bogota"} |>Nontinuum.MongoHandler.delete()
+
+# Find All 
+Nontinuum.BiblioImpl.new |>Nontinuum.MongoHandler.find_all()
+
+#################################### Person  ##########################################
+
+
+# Create 
+%Nontinuum.PersonImpl{name: "Kevin", cc: 104714, last_name: "Rodriguez"} |>Nontinuum.MongoHandler.create()
+%Nontinuum.PersonImpl{name: "Kevin2", cc: 1047140, last_name: "Rodriguez2"} |>Nontinuum.MongoHandler.create()
+
+# Delete 
+%Nontinuum.PersonImpl{name: "simon bolivar", ubication: "bogota"} |>Nontinuum.MongoHandler.delete()
+
+# Find All 
+Nontinuum.PersonImpl.new |>Nontinuum.MongoHandler.find_all()
+
+
+#################################### Book  ##########################################
+
+
+# Create 
+%Nontinuum.BookImpl{name: "senor de los anillos", description: "pelicula que ocurre en la edad media", genre: "ciencia Ficcion"} |>Nontinuum.MongoHandler.create()
+%Nontinuum.BookImpl{name: "Sonic", description: "El corredor Azul", genre: "Animada"} |>Nontinuum.MongoHandler.create()
+
+# Delete 
+%Nontinuum.BookImpl{name: "simon bolivar", ubication: "bogota"} |>Nontinuum.MongoHandler.delete()
+
+# Find All 
+Nontinuum.BookImpl.new |>Nontinuum.MongoHandler.find_all()
