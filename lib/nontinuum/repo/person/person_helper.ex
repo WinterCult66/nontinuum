@@ -1,15 +1,5 @@
 defmodule Nontinuum.HelperPerson do
-  @table "people"
-
-  def create_conn() do
-    {:ok, conn} =
-      Mongo.start_link(
-        url: "mongodb://localhost:27017/admin",
-        username: "root",
-        password: "example"
-      )
-    IO.inspect(conn)
-  end
+  @table "person"
 
   def create_person(conn, person) do
     Mongo.insert_one(conn, @table, person)

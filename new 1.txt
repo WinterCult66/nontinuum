@@ -1,0 +1,4 @@
+conn = Mongo.start_link(url: "mongodb://localhost:27017/admin", username: "root",password: "example" )
+{:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin", username: "root",password: "example")
+Mongo.insert_one(conn, "people", %{first_name: "John", last_name: "Smith"})
+person = %Nontinuum.PersonImpl{name: "kevin", cc: 1025, last_name: "rodriguez"}
