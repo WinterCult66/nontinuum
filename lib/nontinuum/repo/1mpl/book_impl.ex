@@ -4,10 +4,9 @@ defmodule Nontinuum.BookImpl do
   def new(), do: %Nontinuum.BookImpl{}
 
   defimpl Nontinuum.MongoHandler, for: __MODULE__ do
-
     def create(data), do: Nontinuum.HelperBook.create_book(create_conn(), data)
     def delete(data), do: Nontinuum.HelperBook.delete_book(create_conn(), data)
-    def find_all(_), do:  Nontinuum.HelperBook.list_book(create_conn())
+    def find_all(_), do: Nontinuum.HelperBook.list_book(create_conn())
     def update(_, _), do: :uninplmented
 
     def create_conn() do

@@ -1,3 +1,3 @@
-defprotocol MongoHandler do
-  def create(person)
-end
+# defprotocol MongoHandler do
+#   def create(person)
+# end

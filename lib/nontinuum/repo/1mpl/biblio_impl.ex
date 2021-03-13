@@ -3,7 +3,6 @@ defmodule Nontinuum.BiblioImpl do
 
   def new(), do: %Nontinuum.BiblioImpl{}
 
-
   defimpl Nontinuum.MongoHandler, for: __MODULE__ do
     def create(data), do: Nontinuum.HelperBiblio.create_biblio(create_conn(), data)
     def delete(data), do: Nontinuum.HelperBiblio.delete_biblio(create_conn(), data)
