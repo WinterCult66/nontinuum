@@ -7,7 +7,7 @@ defmodule Nontinuum.PersonImpl do
     def create(data, _), do: Nontinuum.HelperPerson.create_person(create_conn(), data)
     def delete(data, _), do: Nontinuum.HelperPerson.delete_person(create_conn(), data)
     def find_all(_, _), do: Nontinuum.HelperPerson.list_person(create_conn())
-    def update(_, _, _), do: :uninplmented
+    def update(_, _), do: :uninplmented
 
     def create_conn() do
       {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin")

@@ -12,7 +12,7 @@ defmodule PersonTest do
       }
       |> Nontinuum.MongoHandler.create(nil)
 
-    {:ok, %Mongo.InsertOneResult{acknowledged: acknowledged, inserted_id: inserted_id}} = person
+    {:ok, %Mongo.InsertOneResult{acknowledged: acknowledged, inserted_id: _}} = person
 
     assert acknowledged
   end

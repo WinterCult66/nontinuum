@@ -7,7 +7,7 @@ defmodule Nontinuum.BookImpl do
     def create(data, _), do: Nontinuum.HelperBook.create_book(create_conn(), data)
     def delete(data, _), do: Nontinuum.HelperBook.delete_book(create_conn(), data)
     def find_all(_, _), do: Nontinuum.HelperBook.list_book(create_conn())
-    def update(_, _, _), do: :uninplmented
+    def update(_, _), do: :uninplmented
 
     def create_conn() do
       {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin")

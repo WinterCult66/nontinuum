@@ -1,6 +1,6 @@
 defprotocol Nontinuum.MongoHandler do
-  def create(data, handlerx)
-  def delete(data, handlerx)
-  def find_all(data, handlerx)
-  def update(data, set, handlerx)
+  def create(handler, data)
+  def delete(handler, data)
+  def find_all(handler, data)
+  def update(handler, data)
 end
