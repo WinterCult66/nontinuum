@@ -11,15 +11,15 @@ defmodule MongoTest do
     #IO.inspect(new_user)
 
     handler = MongoDBMock.new
-    person =    %Nontinuum.PersonMockImpl{name: "Kevin1", cc: 104_7142, last_name: "Rodriguez12"}
-    new_person = Nontinuum.MongoHandler.create(person, handler)
-
-    
-    person =    %Nontinuum.PersonMockImpl{name: "Kevin2", cc: 104_7141, last_name: "Rodriguez13"}
+    person =    %Nontinuum.PersonMockImpl{cc: 123456789, name: "Kevin1", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
     new_person = Nontinuum.MongoHandler.create(person, handler)
 
 
-    person =    %Nontinuum.PersonMockImpl{name: "Kevin3", cc: 104_7140, last_name: "Rodriguez47"}
+    person =    %Nontinuum.PersonMockImpl{cc: 123456789, name: "Kevin2", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
+    new_person = Nontinuum.MongoHandler.create(person, handler)
+
+
+    person =    %Nontinuum.PersonMockImpl{cc: 123456789, name: "Kevin3", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
     new_person = Nontinuum.MongoHandler.create(person, handler)
 
 

@@ -1,5 +1,5 @@
 defmodule Nontinuum.PersonMockImpl do
-  defstruct [:name, :cc, :last_name]
+  defstruct [:cc, :name, :last_name, :email, :uuid]
 
   def new(), do: %Nontinuum.PersonImpl{}
 

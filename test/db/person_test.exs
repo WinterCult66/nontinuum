@@ -3,11 +3,9 @@ defmodule PersonTest do
 
   test "Create Person" do
     person =
-      %Nontinuum.PersonImpl{name: "Kevin", cc: 104_714, last_name: "Rodriguez"}
-
-      Nontinuum.MongoHandler.create(person, nil)
-      IO.inspect(person)
-    #{:ok, %Mongo.InsertOneResult{acknowledged: acknowledged, inserted_id: inserted_id}} = person
+      %Nontinuum.PersonImpl{cc: 123456789, name: "Kevin", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
+      |> Nontinuum.MongoHandler.create(nil)
+    {:ok, %Mongo.InsertOneResult{acknowledged: acknowledged, inserted_id: inserted_id}} = person
     assert true
   end
 
