@@ -12,9 +12,12 @@ defmodule MongoDBMockBook do
 
   @impl true
   def handle_call({:create, map}, _, {id, books}) do
-    IO.inspect("entro a los libros")
-    books = Map.put(books, id, map)
-    state = {id, books}
-    {:reply, map, state}
+    new_id = id + 1
+    new_user = map
+    books = Map.put(books, new_id, new_user)
+    state = {new_id, books}
+
+    IO.inspect(books)
+    {:reply, new_user, state}
   end
 end

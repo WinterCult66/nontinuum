@@ -11,9 +11,13 @@ defmodule MongoDBMockPerson do
   def init(state), do: {:ok, state}
 
   @impl true
-  def handle_call({:create, map}, _, {id, users}) do
-    persons = Map.put(users, id, map)
-    state = {id, persons}
-    {:reply, map, state}
+  def handle_call({:create, map}, _,  {id, users}) do
+    new_id = id + 1
+    new_user = map
+    users = Map.put(users, new_id, new_user)
+    state = {new_id, users}
+
+    IO.inspect(users)
+    {:reply, new_user, state}
   end
 end
