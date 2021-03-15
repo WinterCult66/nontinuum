@@ -11,7 +11,7 @@ defmodule MongoMockBookTest do
       uuid: UUID.uuid1()
     }
 
-    new_book = Nontinuum.MongoHandler.create(book, handler)
+    new_book = Nontinuum.MongoHandler.create(handler, book)
 
     assert book.uuid == new_book.uuid
   end

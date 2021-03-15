@@ -3,13 +3,13 @@ defmodule Nontinuum.BookMockImpl do
 
   def new(), do: %Nontinuum.BookImpl{}
 
-  defimpl Nontinuum.MongoHandler, for: __MODULE__ do
-    def create(data, handler) do
+  defimpl Nontinuum.MongoHandler, for: MongoDBMockBook do
+    def create(handler, data) do
       GenServer.call(handler.pid, {:create, data})
     end
 
     def delete(_, _), do: :uninplmented
     def find_all(_, _), do: :uninplmented
-    def update(_, _, _), do: :uninplmented
+    def update(_, _), do: :uninplmented
   end
 end

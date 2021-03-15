@@ -13,10 +13,11 @@ defmodule PersonGSTest do
       email: "kevin@rodrigyez.net",
       uuid: UUID.uuid1()
     }
-############  
+
+    ############
     person_create = Nontinuum.MongoHandler.create(handler, person)
 
-    {:ok, %Mongo.InsertOneResult{acknowledged: acknowledged, inserted_id: inserted_id}} =
+    {:ok, %Mongo.InsertOneResult{acknowledged: acknowledged, inserted_id: _inserted_id}} =
       person_create
 
     assert acknowledged

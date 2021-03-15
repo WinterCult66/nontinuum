@@ -3,7 +3,7 @@ defmodule Nontinuum.PersonMockMongoImpl do
 
   def new(), do: %Nontinuum.PersonImpl{}
 
-  defimpl Nontinuum.MongoHandler, for: PersonMock  do
+  defimpl Nontinuum.MongoHandler, for: PersonMock do
     def create(handler, data) do
       GenServer.call(handler.pid, {:create, data, handler.conn})
     end

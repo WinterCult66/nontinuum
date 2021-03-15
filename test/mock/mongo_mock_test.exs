@@ -12,7 +12,7 @@ defmodule MongoTest do
       uuid: UUID.uuid1()
     }
 
-    new_person = Nontinuum.MongoHandler.create(person, handler)
+    new_person = Nontinuum.MongoHandler.create(handler, person)
     assert person.cc == new_person.cc
 
     person = %Nontinuum.PersonMockImpl{
@@ -23,7 +23,7 @@ defmodule MongoTest do
       uuid: UUID.uuid1()
     }
 
-    new_person = Nontinuum.MongoHandler.create(person, handler)
+    new_person = Nontinuum.MongoHandler.create(handler, person)
     assert person.cc == new_person.cc
   end
 end

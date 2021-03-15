@@ -6,7 +6,7 @@ defmodule PersonMock do
 
   def create(conn) do
     {:ok, pid} = GenServer.start_link(__MODULE__, {0, %{}})
-    #{:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin")
+    # {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:27017/admin")
     %PersonMock{pid: pid, conn: conn}
   end
 
