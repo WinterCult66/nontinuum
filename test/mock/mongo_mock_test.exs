@@ -2,7 +2,7 @@ defmodule MongoTest do
   use ExUnit.Case
 
   test "Validation list Persons" do
-    handler = MongoDBMock.new()
+    handler = MongoDBMockPerson.new()
 
     person = %Nontinuum.PersonMockImpl{cc: Util.generate_number_random, name: "Kevin1", last_name: "Rodriguez", email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
     new_person = Nontinuum.MongoHandler.create(person, handler)

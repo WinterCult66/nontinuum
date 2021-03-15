@@ -5,7 +5,7 @@ defmodule Nontinuum.PersonMockImpl do
 
   defimpl Nontinuum.MongoHandler, for: __MODULE__ do
     def create(data, handlerx) do
-      GenServer.call(handlerx.pid, {:find_person, data})
+      GenServer.call(handlerx.pid, {:create, data})
     end
 
     def delete(_, _), do: :uninplmented
