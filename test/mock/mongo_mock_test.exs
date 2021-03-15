@@ -1,32 +1,15 @@
 defmodule MongoTest do
   use ExUnit.Case
 
-  test "Create Person" do
+  test "Validation list Persons" do
+    handler = MongoDBMock.new()
 
-    #expected = %Person{cc: 1, name: "Kevin"}
-    #expected = DataMocked.person
-    #handler = MongoDBMock.new
-    #new_user = MongoProtocol.find_person(handler, %{name: "Kevin"})
-    #IO.inspect(expected)
-    #IO.inspect(new_user)
-
-    handler = MongoDBMock.new
-    person =    %Nontinuum.PersonMockImpl{cc: 123456789, name: "Kevin1", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
+    person = %Nontinuum.PersonMockImpl{cc: Util.generate_number_random, name: "Kevin1", last_name: "Rodriguez", email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
     new_person = Nontinuum.MongoHandler.create(person, handler)
+    assert person.cc == new_person.cc
 
-
-    person =    %Nontinuum.PersonMockImpl{cc: 123456789, name: "Kevin2", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
+    person = %Nontinuum.PersonMockImpl{cc: Util.generate_number_random, name: "Kevin2", last_name: "Rodriguez2", email: "kevin2@rodrigyez.net", uuid: UUID.uuid1()}
     new_person = Nontinuum.MongoHandler.create(person, handler)
-
-
-    person =    %Nontinuum.PersonMockImpl{cc: 123456789, name: "Kevin3", last_name: "Rodriguez",email: "kevin@rodrigyez.net", uuid: UUID.uuid1()}
-    new_person = Nontinuum.MongoHandler.create(person, handler)
-
-
-
-    IO.inspect(new_person)
-
-    assert true
+    assert person.cc == new_person.cc
   end
-
 end

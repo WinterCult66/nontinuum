@@ -1,3 +1,3 @@
 defmodule Person do
-  defstruct [:name, :cc, :last_name]
+  defstruct [:cc, :name, :last_name, :email, :uuid]
 end
