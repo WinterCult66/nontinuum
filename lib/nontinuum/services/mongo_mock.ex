@@ -13,10 +13,13 @@ defmodule MongoDBMock do
 
   @impl true
   def handle_call({:find_person, %{name: name}}, _, {user_id, users}) do
+    IO.inspect("FRom HANDLECALLLLLLLLL=[>>>>>>>>>>>>>>>>")
     new_id = user_id + 1
     new_user = %Person{cc: new_id, name: name, last_name: "rodriguez"}
     users = Map.put(users, new_id, new_user)
     state = {new_id, users}
+
+    IO.inspect(users)
     {:reply, new_user, state}
   end
 
