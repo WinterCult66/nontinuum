@@ -1,5 +1,5 @@
 defmodule Nontinuum.BookBorrowedImpl do
-  defstruct [:uuid, :uuidBook, :uuidPerson]
+  defstruct [:uuid, :uuidBook, :uuidPerson, :numberOfTotalCopies]
 
   def new(), do: %Nontinuum.BookBorrowedImpl{}
 

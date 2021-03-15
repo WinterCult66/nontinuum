@@ -16,8 +16,6 @@ defmodule MongoDBMockBook do
     new_user = map
     books = Map.put(books, new_id, new_user)
     state = {new_id, books}
-
-    IO.inspect(books)
     {:reply, new_user, state}
   end
 end

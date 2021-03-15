@@ -17,12 +17,20 @@ defmodule MongoMockBookBorroweddTest do
     new_book = %Nontinuum.BookMockImpl{title: "Harry Potter", description: "Medieval Book" , numberOfTotalCopies: 4,   uuid: UUID.uuid1()} |> Nontinuum.MongoHandler.create(handler_book)
 
 
+    new_book_borrow =  %Nontinuum.BookBorrowedImpl{uuid: UUID.uuid1(), uuidBook: new_book.uuid, uuidPerson: person_1.uuid, numberOfTotalCopies: new_book.numberOfTotalCopies} |> Nontinuum.MongoHandler.create(handler_borrowed) |> IO.inspect
+    assert new_book_borrow == "Asignado"
 
-    book_borrow = %Nontinuum.BookBorrowedImpl{uuid: UUID.uuid1(), uuidBook: new_book.uuid, uuidPerson: person_1.uuid}
-    new_book_borrow = Nontinuum.MongoHandler.create(book_borrow, handler_borrowed)
+    new_book_borrow =  %Nontinuum.BookBorrowedImpl{uuid: UUID.uuid1(), uuidBook: new_book.uuid, uuidPerson: person_2.uuid, numberOfTotalCopies: new_book.numberOfTotalCopies} |> Nontinuum.MongoHandler.create(handler_borrowed) |> IO.inspect
+    assert new_book_borrow == "Asignado"
 
+    new_book_borrow =  %Nontinuum.BookBorrowedImpl{uuid: UUID.uuid1(), uuidBook: new_book.uuid, uuidPerson: person_3.uuid, numberOfTotalCopies: new_book.numberOfTotalCopies} |> Nontinuum.MongoHandler.create(handler_borrowed) |> IO.inspect
+    assert new_book_borrow == "Asignado"
 
-    assert book_borrow.uuid == new_book_borrow.uuid
+    new_book_borrow =  %Nontinuum.BookBorrowedImpl{uuid: UUID.uuid1(), uuidBook: new_book.uuid, uuidPerson: person_4.uuid, numberOfTotalCopies: new_book.numberOfTotalCopies} |> Nontinuum.MongoHandler.create(handler_borrowed) |> IO.inspect
+    assert new_book_borrow == "Asignado"
+
+    new_book_borrow =  %Nontinuum.BookBorrowedImpl{uuid: UUID.uuid1(), uuidBook: new_book.uuid, uuidPerson: person_5.uuid, numberOfTotalCopies: new_book.numberOfTotalCopies} |> Nontinuum.MongoHandler.create(handler_borrowed) |> IO.inspect
+    assert new_book_borrow == "No Asignado"
 
   end
 end

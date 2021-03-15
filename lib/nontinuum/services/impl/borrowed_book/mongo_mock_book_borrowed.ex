@@ -12,9 +12,15 @@ defmodule MongoDBMockBookBorrowed do
 
   @impl true
   def handle_call({:create, map}, _, {id, books_borrowed}) do
-    IO.inspect("entro a los libros MongoDBMockBookBorrowed")
-    books_borrowed = Map.put(books_borrowed, id, map)
-    state = {id, books_borrowed}
-    {:reply, map, state}
+    new_id = id + 1
+    if Enum.count(books_borrowed) < map.numberOfTotalCopies do
+      new_map = {map.uuid, map.uuidBook, map.uuidPerson}
+      books_borrowed = Map.put(books_borrowed, new_id, new_map)
+      state = {new_id, books_borrowed}
+      {:reply, "Asignado", state}
+    else
+      state = {id, books_borrowed}
+      {:reply, "No Asignado", state}
+    end
   end
 end
